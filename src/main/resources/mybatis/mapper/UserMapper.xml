@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.test.demo.mapper.UserMapper">
+  <select id="getUsers" resultType="com.test.demo.dto.UserDto">
+    SELECT id,name,age FROM user;
+  </select>
+
+
+  <insert id="insertUser" parameterType="com.test.demo.dto.UserEntity">
+    INSERT INTO user(id,name,age) VALUES (#{id},#{name},#{age});
+  </insert>
+
+  <select id="selectUserById" parameterType="string" resultType="com.test.demo.dto.UserEntity">
+    SELECT id, name, age FROM user WHERE id=#{id};
+  </select>
+
+  <delete id="deleteUserById" parameterType="String" >
+    DELETE FROM user WHERE id=#{id};
+  </delete>
+
+
+
+
+</mapper>
